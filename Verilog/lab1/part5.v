@@ -1,3 +1,4 @@
+// Not completed
 module part5 (SW, HEX0,HEX1,HEX2,HEX3);
 	input [9:0] SW;		// toggle switches
 	output [6:0] HEX0;	// 7-seg displays
