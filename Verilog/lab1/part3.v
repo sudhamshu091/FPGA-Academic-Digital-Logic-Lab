@@ -1,5 +1,5 @@
-module part3 (SW, LEDG);
-	input [17:0]SW;
-	output [7:0]LEDG;
-	assign LEDG[2:0] = (~SW[17] & ~SW[16] & ~SW[15] & SW[2:0]) | (~SW[17] & ~SW[16] & SW[15] & SW[5:3]) | (~SW[17] & SW[16] & ~SW[15] & SW[8:6]) | (~SW[17] & SW[16] & SW[15] & SW[11:9]) | (SW[17] & SW[16] & SW[15] & SW[14:12]);
+module part3 (SW, LEDR);
+	input [9:0]SW;
+	output [1:0]LEDG;
+	assign LEDG[2:0] = (~SW[9] & ~SW[8] & SW[1:0]) | (~SW[9] & SW[8] & SW[3:2]) | (SW[9] & ~SW[8] & SW[5:4]) | (SW[9] & SW[8] & SW[7:6]);
 endmodule
