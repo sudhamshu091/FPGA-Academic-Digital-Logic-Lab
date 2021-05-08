@@ -1,4 +1,4 @@
-//Not completed
+//Not completed 
 module part2 (SW, HEX0, HEX1);
   input [9:0] SW;
   output [6:0] HEX0, HEX1;
