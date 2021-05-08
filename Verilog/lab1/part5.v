@@ -33,11 +33,11 @@ module char_7seg (C, Display);
 	output [6:0] Display;
 
 
-	assign Display[0] = !((!C[1] & C[0]) | (C[1] & C[0]));
-	assign Display[1] = !((!C[1] & !C[0]) | (C[1] & C[0]));
-	assign Display[2] = !((!C[1] & !C[0]) | (C[1] & C[0]));
-	assign Display[3] = !((!C[1] & C[0]) | (C[1] & !C[0]) | (C[1] & C[0]));
-	assign Display[4] = !((!C[1] & !C[0]) | (!C[1] & C[0]) | (C[1] & !C[0]) | (C[1] & C[0]));
-	assign Display[5] = !((!C[1] & !C[0]) | (!C[1] & C[0]) | (C[1] & !C[0]) | (C[1] & C[0]));
-	assign Display[6] = !((!C[1] & !C[0]) | (!C[1] & C[0]));
+       assign SSD[0] = (~X[3] &  X[2] & ~X[1] & ~X[0]) | (~X[3] &  ~X[2] & ~X[1] & X[0]) ;
+       assign SSD[1] = (~X[3] & X[2] & ~X[1] & X[0]) | (~X[3] & X[2] & X[1] & ~X[0]);
+       assign SSD[2] =  (~X[3] & ~X[2] &  X[1] & ~X[0]);
+       assign SSD[3] = (~X[3] & ~X[2] & ~X[1] &  X[0]) | (~X[3] &  X[2] & ~X[1] & ~X[0]) | (~X[3] &  X[2] & X[1] & X[0]) | (X[3] & ~X[2] & ~X[1] & X[0]);
+       assign SSD[4] = ~((~X[2] & ~X[0]) | (X[1] & ~X[0]));
+       assign SSD[5] = (~X[3] & ~X[2] & ~X[1] &  X[0]) | (~X[3] & ~X[2] &  X[1] & ~X[0]) | (~X[3] & ~X[2] & X[1] & X[0]) | (~X[3] & X[2] & X[1] & X[0]);
+       assign SSD[6] = (~X[3] & ~X[2] & ~X[1] &  X[0]) | (~X[3] & ~X[2] & ~X[1] & ~X[0]) | (~X[3] &  X[2] & X[1] & X[0]);
 endmodule
