@@ -1,4 +1,3 @@
-
 module part5 (SW, HEX0,HEX1,HEX2,HEX3);
 	input [9:0] SW;		// toggle switches
 	output [6:0] HEX0;	// 7-seg displays
@@ -28,8 +27,8 @@ module mux_2bit_4to1 (S,U,V,W,X,M);
 	assign M[1:0] = (~S[1] & ~S[0] & U[1:0]) | (~S[1] & S[0] & V[1:0]) | (S[1] & ~S[0] & W[1:0]) | (S[1] & S[0] & X[1:0]);
 endmodule
 
-module char_7seg (C, Display);
-	input [2:0] C;
+module char_7seg (X, Display);
+	input [2:0] X;
 	output [6:0] Display;
 
 
