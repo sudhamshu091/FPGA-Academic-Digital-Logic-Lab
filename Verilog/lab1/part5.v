@@ -18,7 +18,6 @@ module part5 (SW, HEX0,HEX1,HEX2,HEX3);
     char_7seg H1(M1,HEX1);
     char_7seg H2(M2,HEX2);
     char_7seg H3(M3,HEX3);
-
 endmodule
 
 
