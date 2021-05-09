@@ -16,7 +16,7 @@ module ff (Clk, D, Q);
   assign S = D;
   assign R = ~D;
 
-  wire R_g, S_g, Qa, Qb;
+  wire R_g, S_g, Qa, Qb /* synthesis keep */;
 
   assign R_g = R & Clk;
   assign S_g = S & Clk;
