@@ -1,6 +1,6 @@
 /*<simulation_settings>
-<ftestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off counter_8bit -c counter_8bit --vector_source="C:/intelFPGA_lite/20.1/Waveform2.vwf" --testbench_file="C:/intelFPGA_lite/20.1/simulation/qsim/Waveform2.vwf.vt"</ftestbench_cmd>
-<ttestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off counter_8bit -c counter_8bit --vector_source="C:/intelFPGA_lite/20.1/Waveform2.vwf" --testbench_file="C:/intelFPGA_lite/20.1/simulation/qsim/Waveform2.vwf.vt"</ttestbench_cmd>
+<ftestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off counter_8bit -c counter_8bit --vector_source="C:/intelFPGA_lite/20.1/Waveform2.vwf" --testbench_file="C:/intelFPGA_lite/20.1/simulation/qsim/Waveform.vwf.vt"</ftestbench_cmd>
+<ttestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off counter_8bit -c counter_8bit --vector_source="C:/intelFPGA_lite/20.1/Waveform2.vwf" --testbench_file="C:/intelFPGA_lite/20.1/simulation/qsim/Waveform.vwf.vt"</ttestbench_cmd>
 <fnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory="C:/intelFPGA_lite/20.1/simulation/qsim/" counter_8bit -c counter_8bit</fnetlist_cmd>
 <tnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=off --flatten_buses=off --timescale=1ps --tool=modelsim_oem --format=verilog --output_directory="C:/intelFPGA_lite/20.1/simulation/qsim/" counter_8bit -c counter_8bit</tnetlist_cmd>
 <modelsim_script>onerror {exit -code 1}
