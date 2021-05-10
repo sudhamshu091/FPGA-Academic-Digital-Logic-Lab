@@ -2,61 +2,59 @@ module part3 (CLOCK_50, HEX0);
   input CLOCK_50;
   output [6:0] HEX0;
 
-  wire [3:0] Q;
-  wire [0:0]E;
+  wire [25:0] X;
+  wire [3:0] Q2;
+  reg Clr, Clr2;
 
-  counter_16bit C0 (CLOCK_50, E);
-  counter_4bit C1 (E[0], CLOCK_50, Q);
+  counter_26bit C0 (CLOCK_50, Clr, X);
+  counter_4bit DISPLAY (Clr, Clr2, Q2);
 
-  b2d_7seg H0 (Q[3:0], HEX0);
+  always @ (posedge CLOCK_50) begin
+  Clr = (X[25]&X[24]&X[23]&X[22]&X[21]&X[20]&X[19]&X[18]&X[17]&X[16]&X[15]&X[14]&X[13]&X[12]&X[11]&X[10]&X[9]&X[8]&X[7]&X[6]&X[5]&X[4]&X[3]&X[2]&X[1]&X[0]);
+  end
 
+  always @ (posedge Clr) begin
+    Clr2 = (X[3]&~X[2]&~X[1]&X[0]);
+  end
+
+  b2d_ssd H0 (Q2[3:0], HEX0);
 endmodule
 
-module t_flipflop (En, Clk, Q);
-  input En, Clk;
-  output reg Q;
+module counter_26bit(clk, en, Q);
+input clk,en;
+output [25:0] Q;
+reg [25:0] Qs;
 
-  always @ (posedge Clk)
-    if (En)
-      Q = ~Q;
-
-endmodule
-
-module counter_4bit (En, Clk, Q);
-  input En, Clk;
-  output [3:0] Q;
-
-  wire [3:0] T, Qs;
-
-  t_flipflop T0 (En, Clk, Qs[0]);
-  assign T[0] = En & Qs[0];
-
-  t_flipflop T1 (T[0] ,Clk, Qs[1]);
-  assign T[1] = T[0] & Qs[1];
-
-  t_flipflop T2 (T[1], Clk, Qs[2]);
-  assign T[2] = T[1] & Qs[2];
-
-  t_flipflop T3 (T[2], Clk, Qs[3]);
-  assign T[3] = T[2] & Qs[3];
-
-  assign Q[3:0] = Qs[3:0];
-endmodule
-
-module counter_16bit(Clk, E);
-input Clk;
-output E;
-
-reg [15:0] Qs;
-
-always @(posedge Clk)
+always @(posedge clk)
 begin
- Qs = Qs + 16'd1;
+if(en)
+ Qs = 0;
+else if(~en)
+ Qs = Qs + 1;
+else
+ Qs = 1;
 end
-assign E = ~(Qs[15]|Qs[14]|Qs[13]|Qs[12]|Qs[11]|Qs[10]|Qs[9]|Qs[8]|Qs[7]|Qs[6]|Qs[5]|Qs[4]|Qs[3]|Qs[2]|Qs[1]|Qs[0]);
+assign Q = Qs;
 endmodule
 
-module b2d_7seg (X, SSD);
+module counter_4bit(clk, en, Q);
+input clk,en;
+output [3:0] Q;
+reg [3:0] Qs;
+
+always @(posedge clk)
+begin
+if(en)
+ Qs = 0;
+else if (~en)
+ Qs = Qs + 1;
+else
+ Qs = 1;
+end
+assign Q = Qs;
+endmodule
+
+module b2d_ssd (X, SSD);
   input [3:0] X;
   output [6:0] SSD;
 
@@ -69,4 +67,3 @@ module b2d_7seg (X, SSD);
          assign SSD[6] = (~X[3] & ~X[2] & ~X[1] &  X[0]) | (~X[3] & ~X[2] & ~X[1] & ~X[0]) | (~X[3] &  X[2] & X[1] & X[0]);
 
 endmodule
-
