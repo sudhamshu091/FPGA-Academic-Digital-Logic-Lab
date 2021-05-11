@@ -7,17 +7,17 @@ module part5 (CLOCK_50, HEX5,HEX4,HEX3,HEX2,HEX1,HEX0);
   reg Clr, Clr2;
 
   counter_26bit C0 (CLOCK_50, Clr, Q);
-  counter_4bit DISPLAY (Clr, Clr2, Q2);
+  counter_3bit DISPLAY (Clr, Clr2, Q2);
 
   always @ (posedge CLOCK_50) begin
     Clr = (Q[25]&Q[24]&Q[23]&Q[22]&Q[21]&Q[20]&Q[19]&Q[18]&Q[17]&Q[16]&Q[15]&Q[14]&Q[13]&Q[12]&Q[11]&Q[10]&Q[9]&Q[8]&Q[7]&Q[6]&Q[5]&Q[4]&Q[3]&Q[2]&Q[1]&Q[0]);
   end
 
   always @ (posedge Clr) begin
-    Clr2 = (Q[2]&~Q[1]&Q[0]);
+    Clr2 = (Q2[2]&Q2[1]&~Q2[0]);
   end
 
-  b2d_ssd0 H0 (Q2[2:0], HEX0);
+  b2d_ssd0 H0 (Q2[2:0], HEX0); // To visualize properly in desim change Q2[2:0] to Q[16:14]
   b2d_ssd1 H1 (Q2[2:0], HEX1);
   b2d_ssd2 H2 (Q2[2:0], HEX2);
   b2d_ssd3 H3 (Q2[2:0], HEX3);
@@ -43,10 +43,10 @@ end
 assign Q = Qs;
 endmodule
 
-module counter_4bit(clk, en, Q);
+module counter_3bit(clk, en, Q);
 input clk,en;
-output [3:0] Q;
-reg [3:0] Qs;
+output [2:0] Q;
+reg [2:0] Qs;
 
 always @(posedge clk)
 begin
