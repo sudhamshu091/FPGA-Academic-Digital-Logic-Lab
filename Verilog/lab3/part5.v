@@ -22,6 +22,7 @@ end
 end
 
 adder_8bit A0(A[7:0],B[7:0],S,Co);
+  
 hex_ssd H1(A[7:4],HEX1);
 hex_ssd H0(A[3:0],HEX0);
 hex_ssd H3(B[7:4],HEX3);
