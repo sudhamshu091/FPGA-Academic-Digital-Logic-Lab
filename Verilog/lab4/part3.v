@@ -2,19 +2,19 @@ module part3 (CLOCK_50, HEX0);
   input CLOCK_50;
   output [6:0] HEX0;
 
-  wire [25:0] X;
+  wire [25:0] Q;
   wire [3:0] Q2;
   reg Clr, Clr2;
 
-  counter_26bit C0 (CLOCK_50, Clr, X);
+  counter_26bit C0 (CLOCK_50, Clr, Q);
   counter_4bit DISPLAY (Clr, Clr2, Q2);
 
   always @ (posedge CLOCK_50) begin
-  Clr = (X[25]&X[24]&X[23]&X[22]&X[21]&X[20]&X[19]&X[18]&X[17]&X[16]&X[15]&X[14]&X[13]&X[12]&X[11]&X[10]&X[9]&X[8]&X[7]&X[6]&X[5]&X[4]&X[3]&X[2]&X[1]&X[0]);
+    Clr = (Q[25]&Q[24]&Q[23]&Q[22]&Q[21]&Q[20]&Q[19]&Q[18]&Q[17]&Q[16]&Q[15]&Q[14]&Q[13]&Q[12]&Q[11]&Q[10]&Q[9]&Q[8]&Q[7]&Q[6]&Q[5]&Q[4]&Q[3]&Q[2]&Q[1]&Q[0]);
   end
 
   always @ (posedge Clr) begin
-    Clr2 = (X[3]&~X[2]&~X[1]&X[0]);
+    Clr2 = (Q[3]&~Q[2]&~Q[1]&Q[0]);
   end
 
   b2d_ssd H0 (Q2[3:0], HEX0);
