@@ -17,12 +17,12 @@ module part5 (CLOCK_50, HEX5,HEX4,HEX3,HEX2,HEX1,HEX0);
     Clr2 = (Q[2]&~Q[1]&Q[0]);
   end
 
-  b2d_ssd0 H0 (Q[15:13], HEX0);
-  b2d_ssd1 H1 (Q[15:13], HEX1);
-  b2d_ssd2 H2 (Q[15:13], HEX2);
-  b2d_ssd3 H3 (Q[15:13], HEX3);
-  b2d_ssd4 H4 (Q[15:13], HEX4);
-  b2d_ssd5 H5 (Q[15:13], HEX5);
+  b2d_ssd0 H0 (Q2[2:0], HEX0);
+  b2d_ssd1 H1 (Q2[2:0], HEX1);
+  b2d_ssd2 H2 (Q2[2:0], HEX2);
+  b2d_ssd3 H3 (Q2[2:0], HEX3);
+  b2d_ssd4 H4 (Q2[2:0], HEX4);
+  b2d_ssd5 H5 (Q2[2:0], HEX5);
 
 endmodule
 
