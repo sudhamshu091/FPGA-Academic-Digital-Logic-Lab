@@ -4,7 +4,7 @@ output [6:0] HEX5,HEX4,HEX0,HEX1,HEX2,HEX3;
 
 wire [2:0] D;
 
-mux mux0(SW[9:7],D);
+mux mux0(SW[9:7],D); 
 b2d_ssd0 H0(D[2:0],HEX0);
 b2d_ssd1 H1(D[2:0],HEX1);
 b2d_ssd2 H2(D[2:0],HEX2);
@@ -90,7 +90,7 @@ endmodule
 module b2d_ssd4 (X, SSD);
   input [2:0] X;
   output [6:0] SSD;
-
+ 
          assign SSD[0] = (~X[2]&~X[1]&~X[0]) | (X[2]&~X[1]&X[0]) | (~X[2]&~X[1]&X[0]) | (~X[2]&X[1]&X[0]);
          assign SSD[1] = (~X[2]&~X[1]&~X[0]) | (X[2]&~X[1]&X[0]) | (~X[2]&X[1]&~X[0]);
          assign SSD[2] = (~X[2]&~X[1]&~X[0]) | (X[2]&~X[1]&X[0]) | (~X[2]&X[1]&~X[0]);
