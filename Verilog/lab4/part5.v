@@ -17,7 +17,7 @@ module part5 (CLOCK_50, HEX5,HEX4,HEX3,HEX2,HEX1,HEX0);
     Clr2 = (Q2[2]&Q2[1]&~Q2[0]);
   end
 
-  b2d_ssd0 H0 (Q2[2:0], HEX0); // To visualize properly in desim change Q2[2:0] to Q[16:14]
+  b2d_ssd0 H0 (Q2[2:0], HEX0);  // To visualize properly in desim change Q2[2:0] to Q[16:14]
   b2d_ssd1 H1 (Q2[2:0], HEX1);
   b2d_ssd2 H2 (Q2[2:0], HEX2);
   b2d_ssd3 H3 (Q2[2:0], HEX3);
