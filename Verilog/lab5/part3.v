@@ -157,7 +157,7 @@ module counter_clock2(clock, reset, cout);
     always @ (posedge clock)
     begin
        if (~reset) begin
-           if(count== 3000000000) begin // change 3000000000 to 30000
+         if(count== 3000000000) begin // change 3000000000 to 300000
               count = 0;
               cout = cout + 1;
            end else begin
