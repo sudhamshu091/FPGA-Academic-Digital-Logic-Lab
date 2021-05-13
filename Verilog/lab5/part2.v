@@ -83,7 +83,7 @@ endmodule
 
 module counter_modk(clock, reset, Q);
   parameter n = 10;
-  parameter k = 999;
+  parameter k = 1000;
 
   input clock, reset;
   output [n-1:0] Q;
