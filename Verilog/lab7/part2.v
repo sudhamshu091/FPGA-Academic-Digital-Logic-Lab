@@ -1,3 +1,4 @@
+// Not working
 module part2 (SW, KEY, LEDR);
   input [9:0] SW;
   input [3:0] KEY;
