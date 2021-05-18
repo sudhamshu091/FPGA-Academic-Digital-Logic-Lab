@@ -1,5 +1,4 @@
 module part1(SW, KEY, LEDR);
-
 	input [1:0] KEY, SW;
 	output [9:0] LEDR;
 
