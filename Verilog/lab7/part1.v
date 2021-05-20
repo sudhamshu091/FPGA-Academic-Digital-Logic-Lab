@@ -86,11 +86,10 @@ module part1(SW, KEY, LEDR);
 					if (SW[1])
 						State = I;
 					else
-						State = B;
+		                		State = B;
 			endcase
 		end
 	end
-
 	assign LEDR[9] = z;
 	assign LEDR[8:0] = Y;
 endmodule
