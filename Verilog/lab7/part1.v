@@ -1,10 +1,12 @@
+// Not complete
 module part1(SW, KEY, LEDR);
 	input [1:0] KEY, SW;
 	output [9:0] LEDR;
 
 	reg  z;
 	reg [3:0] shifter;
-	reg [8:0] Y, State;
+	reg [3:0] State;
+	wire [8:0] Y;
 
 	always @(posedge KEY[0] or posedge SW[0]) begin
 		if (SW[0]) begin
@@ -21,20 +23,9 @@ module part1(SW, KEY, LEDR);
 	end
 
 	parameter A=0, B=1, C=2, D=3, E=4, F=5, G=6, H=7, I=8;
-	always @ (State) begin
-		case(State)
-			A: Y = 9'b000000001;
-			B: Y = 9'b000000010;
-			C: Y = 9'b000000100;
-			D: Y = 9'b000001000;
-			E: Y = 9'b000010000;
-			F: Y = 9'b000100000;
-			G: Y = 9'b001000000;
-			H: Y = 9'b010000000;
-			I: Y = 9'b100000000;
-			default: Y = 9'b000000000;
-		endcase
-	end
+
+ state s1(State[3:0], Y);
+
 
 	always @(posedge KEY[0] or posedge SW[0]) begin
 		if (SW[0]) begin
@@ -93,3 +84,18 @@ module part1(SW, KEY, LEDR);
 	assign LEDR[9] = z;
 	assign LEDR[8:0] = Y;
 endmodule
+
+module state (State, Y);
+  input [3:0] State;
+  output [8:0] Y;
+
+	assign Y[0] = ~(~State[3] | ~State[2] |~State[1] |~State[0]);
+	assign Y[1] = ~(~State[3] | ~State[2] |~State[1] |State[0]) ;
+	assign Y[2] = ~(~State[3] | ~State[2] |State[1] |~State[0]) ;
+	assign Y[3] = ~(~State[3] | ~State[2] |State[1] |State[0]) ;
+	assign Y[4] = ~(~State[3] | State[2] |~State[1] |~State[0]) ;
+	assign Y[5] = ~(~State[3] | State[2] |~State[1] |State[0]) ;
+	assign Y[6] = ~(~State[3] | State[2] |State[1] |~State[0]) ;
+	assign Y[7] = ~(~State[3] | State[2] |State[1] |State[0]) ;
+	assign Y[8] = ~(State[3] | ~State[2] |~State[1] |~State[0]) ;
+	endmodule
