@@ -1,11 +1,11 @@
 module part4 (SW, KEY,CLOCK_50, HEX5, HEX4, HEX3, HEX2, HEX1, HEX0);
   input [9:0] SW;
-	input CLOCK_50;
+  input CLOCK_50;
   input [0:0] KEY;
   output [6:0] HEX5, HEX4, HEX3, HEX2, HEX1, HEX0;
 
   wire [3:0] data, q;
-	wire rst;
+  wire rst;
   wire [4:0] rdaddress, wraddress;
   wire wren, clock;
 
@@ -14,9 +14,9 @@ module part4 (SW, KEY,CLOCK_50, HEX5, HEX4, HEX3, HEX2, HEX1, HEX0);
   assign rst = KEY[0];
   assign wraddress = SW[8:4];
 
-	counter_modk c1(CLOCK_50, KEY[0], rdaddress);
-	defparam c1.n = 15;
-	defparam c1.k = 99;
+  counter_modk c1(CLOCK_50, KEY[0], rdaddress);
+  defparam c1.n = 15;
+  defparam c1.k = 99;
   ram32x4 R0 (CLOCK_50, data, rdaddress, wraddress, wren, q);
 
   hex_ssd H5 ({1'b0,1'b0,1'b0,wraddress[4]}, HEX5);
