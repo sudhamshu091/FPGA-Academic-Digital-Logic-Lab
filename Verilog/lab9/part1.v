@@ -1,3 +1,4 @@
+// Some small bug, maybe w.r.t case statments, not working
 module part1 (SW, KEY, LEDR, HEX1, HEX0);
   input [9:0] SW;
   input [3:0] KEY;
