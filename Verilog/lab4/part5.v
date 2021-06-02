@@ -5,7 +5,7 @@ module part5 (CLOCK_50, HEX5,HEX4,HEX3,HEX2,HEX1,HEX0);
   wire [25:0] Q;
   wire [2:0] Q2;
   reg Clr, Clr2;
-
+ 
   counter_26bit C0 (CLOCK_50, Clr, Q);
   counter_3bit DISPLAY (Clr, Clr2, Q2);
 
