@@ -23,8 +23,8 @@ module part4 (SW, LEDR, HEX1, HEX0);
   comparator9 C2 (S[4:0], z);
   circuitA A4 (S[3:0], A);
   mux_4bit_2to1 M0 (z, S[3:0], A, M);
-  circuitB B0 (z, HEX0);
-  b2d_7seg S0 (M, HEX1);
+  circuitB B0 (z, HEX1);
+  b2d_7seg S0 (M, HEX0);
 
 endmodule
 
