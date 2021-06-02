@@ -9,7 +9,7 @@ assign bcd1[7:0] = {0,bcd};
 bin2bcd B0(SW[5:0],bcd);
 b2d_7seg H0(bcd[3:0],HEX0);
 b2d_7seg H1(bcd1[7:4],HEX1);
-
+ 
 endmodule
 
 module bin2bcd(binary,bcd);
