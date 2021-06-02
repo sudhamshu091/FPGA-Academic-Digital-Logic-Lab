@@ -3,7 +3,7 @@ input [9:0] SW;
 output [6:0] HEX5,HEX4,HEX0,HEX1,HEX2,HEX3;
 
 wire [2:0] D;
-
+ 
 mux mux0(SW[9:7],D);
 b2d_ssd0 H0(D[2:0],HEX0);
 b2d_ssd1 H1(D[2:0],HEX1);
