@@ -17,15 +17,7 @@ input [7:0] I;
 input [1:0] S;
 output [1:0]D;
 reg [1:0]D;
-always @ (I, S)
-begin
- case(S)
- 2'd0: D=I[7:6];
- 2'd1: D=I[5:4];
- 2'd2: D=I[3:2];
- 2'd3: D=I[1:0];
-endcase
-end
+ assign D[1:0] = S[1]? (S[0]? I[7:6] : I[5:4]) : (S[0] ? I[3:2] : I[1:0]);
 endmodule
 
 module b2d_ssd0 (X, SSD);
