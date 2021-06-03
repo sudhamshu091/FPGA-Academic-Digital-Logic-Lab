@@ -4,7 +4,7 @@ module part1 (SW, KEY, LEDR, HEX1, HEX0);
   input [3:0] KEY;
   output [9:0] LEDR;
   output [6:0] HEX1, HEX0;
-
+ 
   wire [8:0] DIN, BusWires;
   wire Resetn, Clock, Run, Done;
 
