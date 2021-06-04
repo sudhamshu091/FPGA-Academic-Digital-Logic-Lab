@@ -1,11 +1,11 @@
-module part4 (SW, LEDR, HEX1, HEX0);
+module part4 (SW, LEDR, HEX3, HEX2, HEX1, HEX0);
   input [8:0] SW;
   output [4:0] LEDR;
-  output [6:0] HEX1, HEX0;
+  output [6:0] HEX3, HEX2, HEX1, HEX0;
   wire s1, s2;
 
-  comparator C0 (SW[3:0], s1);
-  comparator C1 (SW[7:4], s2);
+  comparator C0 (SW[3:0], HEX3);
+  comparator C1 (SW[7:4], HEX2);
 
   wire c1, c2, c3;
   wire [4:0] S;
