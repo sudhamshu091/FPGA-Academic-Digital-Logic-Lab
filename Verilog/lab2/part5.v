@@ -20,13 +20,13 @@ module part5 (SW, LEDR, HEX0, HEX1, HEX3, HEX5);
 		begin
 			if (T0 > 9)
 				begin
-					Z0 = 5'd10;			//or 5'b01010
-					c0 = 1'd1;						//or 1'b1
+					Z0 = 5'd10;			
+					c0 = 1'd1;					
 				end
 			else
 				begin
-					Z0 = 5'd0;			//or 5'b00000
-					c0 = 1'd0;						//or 1'b0
+					Z0 = 5'd0;			
+					c0 = 1'd0;		
 				end
 		end
 
