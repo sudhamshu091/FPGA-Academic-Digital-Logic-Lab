@@ -1,11 +1,14 @@
-module part4 (SW, LEDR, HEX3, HEX2, HEX1, HEX0);
+module part4 (SW, LEDR, HEX5, HEX3, HEX1, HEX0);
   input [8:0] SW;
   output [9:0] LEDR;
-  output [6:0] HEX3, HEX2, HEX1, HEX0;
+  output [6:0] HEX5, HEX3, HEX1, HEX0;
   wire s1, s2;
 
   comparator C0 (SW[3:0], s1);
   comparator C1 (SW[7:4], s2);
+  
+  b2d_7seg HEX0 (SW[3:0],HEX3);
+  b2d_7seg HEX1 (SW[7:4],HEX5);
   
   assign LEDR[9] = s1 | s2;
 
