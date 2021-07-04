@@ -21,7 +21,7 @@ B = SW[7:0];
 end
 end
 
-adder_8bit A0(A[7:0],B[7:0],S,Co);
+  adder_8bit A0(A[7:0],B[7:0],S,C0);
   
 hex_ssd H1(A[7:4],HEX1);
 hex_ssd H0(A[3:0],HEX0);
