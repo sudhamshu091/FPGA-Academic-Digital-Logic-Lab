@@ -1,7 +1,7 @@
 module part6(SW,HEX5,HEX4,HEX3,HEX2,HEX1,HEX0);
 input [9:0] SW;
 output [6:0] HEX5,HEX4,HEX0,HEX1,HEX2,HEX3;
-
+ 
 wire [2:0] D;
  
 mux mux0(SW[9:7],D);
