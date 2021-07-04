@@ -1,7 +1,7 @@
 module part6(SW,HEX0,HEX1);
 input [5:0] SW;
 output [6:0] HEX0,HEX1;
-
+ 
 wire [6:0] bcd;
 wire [7:0] bcd1;
 assign bcd1[7:0] = {0,bcd};
