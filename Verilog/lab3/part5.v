@@ -9,7 +9,7 @@ reg [7:0] B;
 
 wire [7:0] S;
 wire C0;
-
+ 
 always@(posedge KEY[1] or posedge KEY[0])
 begin
 if (KEY[0] == 1'b1) begin
